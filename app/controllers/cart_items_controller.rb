@@ -1,9 +1,9 @@
 class CartItemsController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def destroy
     @cart = current_cart
-    @item = @cart.@cart.find_cart_item(params[:id])
+    @item = @cart.find_cart_item(params[:id])
     @product = @item.product
     @item.destroy
 
@@ -20,7 +20,7 @@ before_action :authenticate_user!
       flash[:notice] = "成功變更數量"
     else
       flash[:warning] = "數量不足以加入購物車"
-
+    end
     redirect_to carts_path
   end
 
